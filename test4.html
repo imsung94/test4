@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문제</title>
+  <style>
+    .container {
+      margin-top: 30px;
+    }
+
+    .answer {
+      margin-bottom: 50px;
+      border-radius: 15px;
+      border: 1px gray solid;
+      padding: 10px;
+    }
+
+    .data {
+      border-top: 1px gray solid;
+      padding-top: 10px;
+    }
+    .data div{
+      margin-bottom: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="answer">
+    <h3>1. 다음 array를 이용하여 array를 만드시오.(금액 낮은 순으로 정렬 필요, 금액 기준은 50,000으로)</h3>
+    <div class="data">
+      <div>
+        const array = [
+        {price: '3,000원', goods: '연마제'},
+        {price: '18,000원', goods: '토이 카메라'},
+        {price: '28,000원', goods: '도미노 쉬림프 피자'},
+        {price: '128,000원', goods: '트랙패드(스페이스 그레이)'},
+        {price: '30,000원', goods: '로지텍 g102'},
+        {price: '110,000원', goods: '로지텍 mx master 3'},
+        {price: '350,000원', goods: '에어팟 프로 2'},
+        {price: '1,000원', goods: '피크닉'},
+        {price: '31,000원', goods: '마르키사 액상'},
+        ]
+      </div>
+      <div>
+        const result = {
+        expensive: {
+        list: [
+        {price: '110,000원', goods: '로지텍 mx master 3'},
+        {price: '128,000원', goods: '트랙패드(스페이스 그레이)'},
+        {price: '350,000원', goods: '에어팟 프로 2'},
+        ]
+        },
+        cheap: {
+        list: [
+        {price: '1,000원', goods: '피크닉'},
+        {price: '3,000원', goods: '연마제'},
+        {price: '18,000원', goods: '토이 카메라'},
+        {price: '28,000원', goods: '도미노 쉬림프 피자'},
+        {price: '30,000원', goods: '로지텍 g102'},
+        {price: '31,000원', goods: '마르키사 액상'},
+        ]
+        }
+        }
+      </div>
+    </div>
+  </div>
+  <button type="button" onclick="array()">클릭</button>
+</div>
+</body>
+<script>
+
+  /******************************************************************************************/
+  /******************************* 답안지는 들여쓰기를 반드시 해주세요. ******************************/
+  /******************************************************************************************/
+
+
+  function array() {
+
+
+    const array = [
+      {price: '3,000원', goods: '연마제'},
+      {price: '18,000원', goods: '토이 카메라'},
+      {price: '28,000원', goods: '도미노 쉬림프 피자'},
+      {price: '128,000원', goods: '트랙패드(스페이스 그레이)'},
+      {price: '30,000원', goods: '로지텍 g102'},
+      {price: '110,000원', goods: '로지텍 mx master 3'},
+      {price: '350,000원', goods: '에어팟 프로 2'},
+      {price: '1,000원', goods: '피크닉'},
+      {price: '31,000원', goods: '마르키사 액상'},
+    ];
+
+    let result = [];
+    const test = array;
+
+    const t = test.sort((a, b) => parseInt(a.price) - parseInt(b.price));
+    result.push({expensive: {list: t.filter(x => x.price.replace(',', '').replace('원', '') > 50000)}});
+    result.push({cheap: {list: t.filter(x => x.price.replace(',', '').replace('원', '') < 50000)}});
+
+    console.log(result);
+
+    // const result = {
+    //     expensive: {
+    //         list: [
+    //             {price: '110,000원', goods: '로지텍 mx master 3'},
+    //             {price: '128,000원', goods: '트랙패드(스페이스 그레이)'},
+    //             {price: '350,000원', goods: '에어팟 프로 2'},
+    //         ]
+    //     },
+    //     cheap: {
+    //         list: [
+    //             {price: '1,000원', goods: '피크닉'},
+    //             {price: '3,000원', goods: '연마제'},
+    //             {price: '18,000원', goods: '토이 카메라'},
+    //             {price: '28,000원', goods: '도미노 쉬림프 피자'},
+    //             {price: '30,000원', goods: '로지텍 g102'},
+    //             {price: '31,000원', goods: '마르키사 액상'},
+    //         ]
+    //     }
+    // };
+  }
+</script>
+
+</html>
